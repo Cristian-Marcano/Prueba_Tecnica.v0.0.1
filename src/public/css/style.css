@@ -1,0 +1,63 @@
+/*
+body{
+    background: rgb(2,0,36);
+    background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(54,0,120,1) 40%, rgba(0,39,255,1) 100%);
+    background-size: 400% 400%;
+    animation: cambiar 10s ease infinite;
+    -webkit-animation: cambiar 10s ease infinite;
+}
+
+@keyframes cambiar{
+    0%{background-position: 0 50%;}
+    50%{background-position: 100% 50%;}
+    100%{background-position: 0 50%;}
+}*/
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Dosis&family=Inter&family=Shadows+Into+Light&display=swap');
+
+body{
+    background: rgb(220,220,220);
+    font-family: 'Dosis', sans-serif;
+}
+
+.xd{
+    background: #e4e4e4;
+    box-shadow: .8px 1px 10px 0 #000;
+}
+
+.burbuja1{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,39,255,1) 0%, rgba(54,0,120,1) 40%, rgba(2,0,36,1) 100%);
+    opacity: .7;
+
+}
+
+.burbuja2{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background: radial-gradient(circle, rgba(253,187,45,1) 00%, rgba(34,193,195,1) 100%);
+    opacity: .7;
+}
+
+.burbuja3{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    opacity: .7;
+}

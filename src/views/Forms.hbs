@@ -1,0 +1,79 @@
+<div class="container p-4">
+    <div class="rows">
+        <div class="col-md-6 mx-auto">
+            <div class="card xd">
+                <div class="card-body">
+                    <form action="/Form" method="post">
+                        <div class="form-group">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" name="correo" placeholder="Correo" autofocus required>
+                                <label for="correo" class="form-label">Correo</label>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <div class="text-center mb-2">Edad</div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="form-check-input" name="edad" value="18-25">
+                                <label for="edad" class="form-label-check">18-25</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="form-check-input" name="edad" value="26-33">
+                                <label for="edad" class="form-label-check">26-33</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="form-check-input" name="edad" value="34-40">
+                                <label for="edad" class="form-label-check">34-40</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="form-check-input" name="edad" value="40+">
+                                <label for="edad" class="form-label-check">40+</label>
+                            </div>
+                        </div>
+                        <div class="form-group mt-2">
+                            <div class="row g-2">
+                                <div class="col-md-3">
+                                    <div class="form-floating">
+                                        <select class="form-select" name="sex" required>
+                                            <option value="M">M</option>
+                                            <option value="F">F</option>
+                                        </select>
+                                        <label for="sex">Sexo</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-floating">
+                                        <select class="form-select" name="favorite" required>
+                                            <option value="facebook">Facebook</option>
+                                            <option value="whatsapp">Whatsapp</option>
+                                            <option value="twitter">Twitter</option>
+                                            <option value="instagram">Instagram</option>
+                                            <option value="tiktok">Tiktok</option>
+                                        </select>
+                                        <label for="favorite">Red Social Favorita</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mt-2">
+                            <div class="text-center mb-2">Tiempo promedio que usas al dia:</div>
+                            <label for="tiempoF" class="form-label">Facebook <span class="h" name="tiempoF">0 Horas</span></label>
+                            <input type="range" class="form-range" min="0" max="24" value="0" name="tiempoF">
+                            <label for="tiempoW" class="form-label">Whatsapp <span class="h" name="tiempoW">0 Horas</span></label>
+                            <input type="range" class="form-range" min="0" max="24" value="0" name="tiempoW">
+                            <label for="tiempoTw" class="form-label">Twitter <span class="h" name="tiempoTw">0 Horas</span></label>
+                            <input type="range" class="form-range" min="0" max="24" value="0" name="tiempoTw">
+                            <label for="tiempoIg" class="form-label">Instagram <span class="h" name="tiempoIg">0 Horas</span></label>
+                            <input type="range" class="form-range" min="0" max="24" value="0" name="tiempoIg">
+                            <label for="tiempoTik" class="form-label">Tiktok <span class="h" name="tiempoTik">0 Horas</span></label>
+                            <input type="range" class="form-range" min="0" max="24" value="0" name="tiempoTik">
+                        </div>
+                        <div class="d-grid gap-2 mt-3">
+                            <button class="btn btn-success">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/code.js"></script>

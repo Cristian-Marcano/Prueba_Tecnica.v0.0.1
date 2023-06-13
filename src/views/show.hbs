@@ -1,0 +1,221 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h1>Encuesta sobre redes sociales</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias sunt quasi alias cum, quisquam molestiae explicabo autem obcaecati dolore at quidem officiis magnam architecto sint quibusdam nostrum tempora nisi labore.</p>
+        </div>
+    </div>
+    {{#if count}}
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h4 class="mt-3">Apoyanos en completar en estas encuestas para llevar acabo esta investigacion</h4>
+            <div class="w-100 mt-3"></div>
+            <a href="/Form" class="btn btn-outline-success offset-5">Formulario</a>
+        </div>
+    </div>
+    <div class="burbuja3 offset-12"></div>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h2>Contador de Encuestas Respondidas: {{count}}</h2>
+        </div>
+    </div>
+    <div class="burbuja2 offset-10"></div>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <p>Tiempo Promedio de Facebook {{prom.promF}} Horas</p>
+            <p>Tiempo Promedio de Whatsapp {{prom.promW}} Horas</p>
+            <p>Tiempo Promedio de Twitter {{prom.promTw}} Horas</p>
+            <p>Tiempo Promedio de Instagram {{prom.promIg}} Horas</p>
+            <p>Tiempo Promedio de Tiktok {{prom.promTik}} Horas</p>
+            <canvas id="timeGraf"></canvas>
+        </div>
+    </div>
+    <div class="burbuja1 offset-2"></div>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h3>Red Social favorita {{mostFavorite}}</h3>
+            <h3>Red Social menos favorita {{noFavorite}}</h3>
+            <canvas id="favoriteGraf"></canvas>
+        </div>
+    </div>
+    <div class="burbuja3 offset-9"></div>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h4>Rango de Edades que usan mas Facebook</h4>
+            <canvas id="facebookGraf"></canvas>
+        </div>
+    </div>
+    <div class="burbuja1 offset-1"></div>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h4>Rango de Edades que usan mas Instagram</h4>
+            <canvas id="instagramGraf"></canvas>
+        </div>
+    </div>
+    <div class="burbuja2 offset-11"></div>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h4>Rango de Edades que usan mas TikTok</h4>
+            <canvas id="tiktokGraf"></canvas>
+        </div>
+    </div>
+    <div class="burbuja3 offset-1"></div>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h4>Rango de Edades que usan mas Twitter</h4>
+            <canvas id="twitterGraf"></canvas>
+        </div>
+    </div>
+    <div class="burbuja2 offset-10"></div>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h4>Rango de Edades que usan mas Whatsapp</h4>
+            <canvas id="whatsappGraf"></canvas>
+        </div>
+    </div>
+    <div class="burbuja1 offset-2"></div>
+    {{else}}
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h4 class="mt-3">Apoyanos en completar en estas encuestas para llevar acabo esta investigacion</h4>
+            <h5 class="text-center">Se el Primero!</h5>
+            <div class="w-100 mt-3"></div>
+            <a href="/Form" class="btn btn-outline-success offset-5">Formulario</a>
+        </div>
+    </div>
+    {{/if}}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+    const dta =[{{prom.promF}},{{prom.promW}},{{prom.promTw}},{{prom.promIg}},{{prom.promTik}}];
+    const timeGrafic = document.getElementById('timeGraf').getContext('2d');
+    new Chart(timeGrafic,{
+        type:'bar',
+        data:{
+            labels:['facebook','instagram','tiktok','twitter','whatsapp'],
+            datasets:[
+                {
+                    label:'Tiempo Promedio de uso de las Redes Sociales',
+                    data:dta,
+                    backgroundColor:'rgb(0,0,0)',
+                    borderColor:'rgb(80,80,80)',
+                    borderWidth:'2px'
+                }
+            ]
+        }
+    });
+    const favoriteGrafic = document.getElementById('favoriteGraf').getContext('2d');
+    const dt = [{{num}}];
+    new Chart(favoriteGrafic,{
+        type:'bar',
+        data:{
+            labels:['facebook','instagram','tiktok','twitter','whatsapp'],
+            datasets:[
+                {
+                    label:'Red Social Favorita',
+                    data:dt,
+                    backgroundColor:'rgb(0,0,0)',
+                    borderColor:'rgb(80,80,80)',
+                    borderWidth:'2px'
+                }
+            ]
+        }
+    });
+    const facebookGrafic = document.getElementById('facebookGraf').getContext('2d');
+    const dtFc = [{{#each edadF}}
+        {{this.cantidad}},
+    {{/each}}];
+    new Chart(facebookGrafic,{
+        type:'bar',
+        data:{
+            labels:['18-25','26-33','34-40','40+'],
+            datasets:[
+                {
+                    label:'Edades que utilizan mas Facebook',
+                    data:dtFc,
+                    backgroundColor:'rgb(0,0,0)',
+                    borderColor:'rgb(80,80,80)',
+                    borderWidth:'2px'
+                }
+            ]
+        }
+    });
+    const whatsappGrafic = document.getElementById('whatsappGraf').getContext('2d');
+    const dtW = [{{#each edadW}}
+        {{this.cantidad}},
+    {{/each}}];
+    new Chart(whatsappGrafic,{
+        type:'bar',
+        data:{
+            labels:['18-25','26-33','34-40','40+'],
+            datasets:[
+                {
+                    label:'Edades que utilizan mas Whatsapp',
+                    data:dtW,
+                    backgroundColor:'rgb(0,0,0)',
+                    borderColor:'rgb(80,80,80)',
+                    borderWidth:'2px'
+                }
+            ]
+        }
+    });
+    const twitterGrafic = document.getElementById('twitterGraf').getContext('2d');
+    const dtTw = [{{#each edadTw}}
+        {{this.cantidad}},
+    {{/each}}];
+    new Chart(twitterGrafic,{
+        type:'bar',
+        data:{
+            labels:['18-25','26-33','34-40','40+'],
+            datasets:[
+                {
+                    label:'Edades que utilizan mas Twitter',
+                    data:dtTw,
+                    backgroundColor:'rgb(0,0,0)',
+                    borderColor:'rgb(80,80,80)',
+                    borderWidth:'2px'
+                }
+            ]
+        }
+    });
+    const instagramGrafic = document.getElementById('instagramGraf').getContext('2d');
+    const dtIg = [{{#each edadIg}}
+        {{this.cantidad}},
+    {{/each}}];
+    new Chart(instagramGrafic,{
+        type:'bar',
+        data:{
+            labels:['18-25','26-33','34-40','40+'],
+            datasets:[
+                {
+                    label:'Edades que utilizan mas Instagram',
+                    data:dtIg,
+                    backgroundColor:'rgb(0,0,0)',
+                    borderColor:'rgb(80,80,80)',
+                    borderWidth:'2px'
+                }
+            ]
+        }
+    });
+    const tiktokGrafic = document.getElementById('tiktokGraf').getContext('2d');
+    const dtTik = [{{#each edadTik}}
+        {{this.cantidad}},
+    {{/each}}];
+    new Chart(tiktokGrafic,{
+        type:'bar',
+        data:{
+            labels:['18-25','26-33','34-40','40+'],
+            datasets:[
+                {
+                    label:'Edades que utilizan mas TikTok',
+                    data:dtTik,
+                    backgroundColor:'rgb(0,0,0)',
+                    borderColor:'rgb(80,80,80)',
+                    borderWidth:'2px'
+                }
+            ]
+        }
+    });
+});
+</script>
