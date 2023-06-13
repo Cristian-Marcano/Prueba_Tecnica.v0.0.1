@@ -1,4 +1,5 @@
-create database EMQU;
+create database if not exists EMQU;
+use EMQU;
 create table websocialstime(
     correo varchar(80) not null,
     tiempoF int(11) not null,
@@ -11,3 +12,4 @@ create table websocialstime(
     edad char(6) not null,
     primary key(correo)
 );
+describe websocialstime;
